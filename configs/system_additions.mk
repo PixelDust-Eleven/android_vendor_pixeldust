@@ -61,6 +61,7 @@ PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     ThemePicker \
+    PixeldustThemesStub
 
 PRODUCT_PACKAGES += \
     Launcher3QuickStep
