@@ -72,7 +72,8 @@ PRODUCT_PACKAGES += \
     FontArvoLatoOverlay \
     FontRubikRubikOverlay \
     FontGoogleSansLatoOverlay \
-    FontGoogleSansOverlay
+    FontGoogleSansOverlay \
+    FontNunitoSansOverlay
 
 # Android Beam
 PRODUCT_COPY_FILES += \
