@@ -22,6 +22,7 @@ include vendor/pixeldust/configs/pixeldust_optimizations.mk
 include vendor/pixeldust/configs/system_additions.mk
 include vendor/pixeldust/configs/version.mk
 include vendor/pixeldust/configs/ota.mk
+include vendor/pixeldust/configs/apex.mk
 
 # Add-ons
 -include vendor/themes/common.mk
@@ -34,13 +35,6 @@ PRODUCT_PACKAGES += \
 # Copy APN list
 PRODUCT_COPY_FILES += \
     vendor/pixeldust/prebuilt/etc/apns-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
-
-# Enable Google Play system updates support
-PRODUCT_SOONG_NAMESPACES += \
-    vendor/pixeldust/apex
-
-PRODUCT_PACKAGES += \
-    ModuleMetadataGooglePrebuilt
 
 # Gboard configuration
 PRODUCT_PRODUCT_PROPERTIES += \
