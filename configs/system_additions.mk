@@ -58,14 +58,14 @@ PRODUCT_PACKAGES += telephony-ext
 
 # Extra Packages
 PRODUCT_PACKAGES += \
+    Launcher3QuickStep \
     LiveWallpapers \
     LiveWallpapersPicker \
+    Seedvault \
+    StitchImage \
     ThemePicker \
     Themes \
     PixeldustThemesStub
-
-PRODUCT_PACKAGES += \
-    Launcher3QuickStep
 
 # Android Beam
 PRODUCT_COPY_FILES += \
