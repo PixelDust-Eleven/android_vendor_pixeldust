@@ -23,8 +23,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Build
 BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
-# Build brotli & signapk to prevent zip signing failure
+# Build missing packages to prevent zip signing failure
 PRODUCT_HOST_PACKAGES += \
+    aapt2 \
+    avbtool \
     brillo_update_payload \
     brotli \
     signapk
