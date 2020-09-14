@@ -25,8 +25,12 @@ BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 # Build missing packages to prevent zip signing failure
 PRODUCT_HOST_PACKAGES += \
-    aapt2 \
+    signapk \
     avbtool \
     brillo_update_payload \
     brotli \
-    signapk
+    aapt2 \
+    deapexer \
+    debugfs \
+    zipalign \
+    apexer
