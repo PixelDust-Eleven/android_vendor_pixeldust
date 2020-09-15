@@ -62,11 +62,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=google/crosshatch/crosshatch:10/QQ3A.200705.002/6506677:user/release-keys \
     ro.pixeldust.maintainer="slothdabski" \
     ro.pixeldust.device="crosshatch"
-
-# Allow neverallows, to allow Smart Charging sepolicies
-ifneq ($(TARGET_BUILD_VARIANT),user)
-SELINUX_IGNORE_NEVERALLOWS := true
-endif
-
-# Vendor
-$(call inherit-product-if-exists, vendor/google/crosshatch/crosshatch-vendor.mk)
