@@ -1,4 +1,4 @@
-# Copyright (C) 2018 The Pixel Dust Project
+# Copyright (C) 2018-2021 The PixelDust Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Core configurations
 include vendor/pixeldust/configs/aosp_fixes.mk
 include vendor/pixeldust/configs/audio.mk
 include vendor/pixeldust/configs/bootanimation.mk
@@ -21,6 +22,9 @@ include vendor/pixeldust/configs/pixeldust_optimizations.mk
 include vendor/pixeldust/configs/system_additions.mk
 include vendor/pixeldust/configs/version.mk
 include vendor/pixeldust/configs/ota.mk
+
+# Add-ons
+-include vendor/themes/common.mk
 
 # Telephony packages
 PRODUCT_PACKAGES += \

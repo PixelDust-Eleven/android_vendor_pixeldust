@@ -1,4 +1,4 @@
-# Copyright (C) 2018-2020 The PixelDust Project
+# Copyright (C) 2018-2021 The PixelDust Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -56,41 +56,14 @@ PRODUCT_PACKAGES += ims-ext-common
 PRODUCT_PACKAGES += telephony-ext
 #PRODUCT_BOOT_JARS += telephony-ext
 
-# Themes
--include vendor/themes/common.mk
-
 # Extra Packages
 PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     ThemePicker \
-    PixelDustThemeStub \
-    DU-Themes \
-    StitchImage
-
-# Force Launcher3 (this is still needed to exclude the nexuslauncher overlays)
-FORCE_BUILD_LAUNCHER3 := YES
-
-# Ship lawnchair instead of launcher3 with unofficial builds 
-ifndef PD_BUILDTYPE
-
-PRODUCT_PACKAGES += \
-    Lawnchair
-
-PRODUCT_COPY_FILES += \
-    vendor/pixeldust/config/permissions/privapp-permissions-lawnchair.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lawnchair.xml \
-    vendor/pixeldust/config/permissions/lawnchair-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
-
-# Overlays
-PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/pixeldust/lawnchairoverlay/
-
-else
 
 PRODUCT_PACKAGES += \
     Launcher3QuickStep
-
-endif
 
 # Android Beam
 PRODUCT_COPY_FILES += \
@@ -108,12 +81,3 @@ PRODUCT_COPY_FILES += \
     vendor/pixeldust/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
     vendor/pixeldust/prebuilt/bin/50-base.sh:system/addon.d/50-base.sh
 endif
-
-# Cutout control overlays
-PRODUCT_PACKAGES += \
-    HideCutout \
-    StatusBarStock
-
-# Overlays
-PRODUCT_PACKAGES += \
-    NexusLauncherReleaseOverlay
