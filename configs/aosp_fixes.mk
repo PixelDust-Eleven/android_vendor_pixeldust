@@ -22,5 +22,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Build brotli & signapk to prevent zip signing failure
 PRODUCT_HOST_PACKAGES += \
+    brillo_update_payload \
     brotli \
     signapk
