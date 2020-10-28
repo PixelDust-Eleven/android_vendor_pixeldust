@@ -61,6 +61,7 @@ PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     ThemePicker \
+    Themes \
     PixeldustThemesStub
 
 PRODUCT_PACKAGES += \
