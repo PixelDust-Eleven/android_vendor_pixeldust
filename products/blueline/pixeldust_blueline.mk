@@ -52,14 +52,7 @@ PRODUCT_DEVICE := blueline
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 3
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME="blueline" \
-    PRIVATE_BUILD_DESC="blueline-user 10 QQ3A.200705.002 6506677 release-keys"
-
-BUILD_FINGERPRINT := "google/blueline/blueline:10/QQ3A.200705.002/6506677:user/release-keys"
-
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.fingerprint=google/crosshatch/crosshatch:10/QQ3A.200705.002/6506677:user/release-keys \
     ro.pixeldust.maintainer="spezi77" \
     ro.pixeldust.device="blueline"
 
