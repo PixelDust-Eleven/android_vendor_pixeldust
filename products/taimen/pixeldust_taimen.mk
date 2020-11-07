@@ -49,12 +49,6 @@ PRODUCT_DEVICE := taimen
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 2 XL
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME="taimen" \
-    PRIVATE_BUILD_DESC="taimen-user 11 RP1A.200720.009 6720564 release-keys"
-
-BUILD_FINGERPRINT := google/taimen/taimen:10/QQ3A.200705.002/6506677:user/release-keys
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.pixeldust.maintainer="nitin1438" \
     ro.pixeldust.device="taimen"
