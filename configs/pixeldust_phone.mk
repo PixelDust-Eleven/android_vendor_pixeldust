@@ -23,6 +23,7 @@ include vendor/pixeldust/configs/system_sepolicy.mk
 include vendor/pixeldust/configs/version.mk
 include vendor/pixeldust/configs/ota.mk
 include vendor/pixeldust/configs/apex.mk
+include vendor/pixeldust/configs/telephony.mk
 
 # Add-ons
 -include vendor/themes/common.mk
