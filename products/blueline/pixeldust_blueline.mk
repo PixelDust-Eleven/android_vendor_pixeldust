@@ -64,6 +64,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.pixeldust.device="blueline"
 
 # Allow neverallows, to allow Smart Charging sepolicies
-#ifneq ($(TARGET_BUILD_VARIANT),user)
-#SELINUX_IGNORE_NEVERALLOWS := true
-#endif
+ifneq ($(TARGET_BUILD_VARIANT),user)
+SELINUX_IGNORE_NEVERALLOWS := true
+# Inherit from sepolicy config
+$(call inherit-product, vendor/pixeldust/configs/sepolicy.mk)
+endif
