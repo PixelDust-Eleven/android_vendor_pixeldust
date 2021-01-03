@@ -28,7 +28,7 @@ include vendor/pixeldust/configs/telephony.mk
 # Add-ons
 -include vendor/themes/common.mk
 
-ifneq ($(filter blueline crosshatch,$(TARGET_DEVICE)),)
+ifneq ($(filter blueline coral crosshatch flame,$(TARGET_DEVICE)),)
 # Inherit from our vendor sepolicy config
 $(call inherit-product, vendor/pixeldust/configs/vendor_sepolicy.mk)
 
