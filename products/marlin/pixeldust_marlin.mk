@@ -1,4 +1,4 @@
-# Copyright (C) 2019 The PixelDust Project
+# Copyright (C) 2019-2021 The PixelDust Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ BOOTANIMATION := 1440
 
 # Release name
 PRODUCT_RELEASE_NAME := PixelXL
-export TARGET_DEVICE := marlin
+export TARGET_DEVICE=marlin
 
 # We have our own power HAL
 TARGET_USES_DEVICE_SPECIFIC_POWERHAL := true
@@ -35,32 +35,48 @@ $(call inherit-product-if-exists, device/google/marlin/aosp_marlin.mk)
 include vendor/pixeldust/configs/pixeldust_phone.mk
 
 # Include optional stuff (e.g. prebuilt apps)
-include vendor/pixeldust/configs/system_optional.mk
+#include vendor/pixeldust/configs/system_optional.mk
 
 # Google Apps
-$(call inherit-product-if-exists, vendor/gapps/gapps.mk)
+$(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
 REMOVE_GAPPS_PACKAGES += \
-    LatinIMEGooglePrebuilt \
+    CalculatorGooglePrebuilt \
+    CalendarGooglePrebuilt \
+    Chrome \
+    DevicePersonalizationPrebuiltPixel2020 \
+    DevicePolicyPrebuilt \
+    DiagnosticsToolPrebuilt \
+    Drive \
+    FilesPrebuilt \
+    GCS \
+    GoogleContacts \
+    GoogleContactsSyncAdapter \
+    GoogleDialer \
+    GoogleFeedback \
+    GoogleTTS \
+    Maps \
+    NgaResources \
+    PixelLiveWallpaperPrebuilt \
+    pixel_experience_2019_midyear \
+    pixel_experience_2019 \
+    pixel_experience_2020_midyear \
+    pixel_experience_2020 \
     Photos \
+    PrebuiltBugle \
+    PrebuiltDeskClockGoogle \
     PrebuiltGmail \
-    NexusLauncherRelease
-
-# Include vendor blobs
-$(call inherit-product-if-exists, vendor/google/marlin/marlin-vendor.mk)
+    RecorderPrebuilt \
+    ScribePrebuilt \
+    SoundAmplifierPrebuilt \
+    SoundPickerPrebuilt \
+    Tycho \
+    YouTube \
+    YouTubeMusicPrebuilt \
+    WellbeingPrebuilt \
+    talkback
 
 # Setup device specific product configuration.
 PRODUCT_NAME := pixeldust_marlin
-PRODUCT_BRAND := google
-PRODUCT_DEVICE := marlin
-PRODUCT_MODEL := Pixel XL
-PRODUCT_MANUFACTURER := Google
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=marlin \
-    PRIVATE_BUILD_DESC="marlin-user 8.1.0 OPM1.171019.021 4565141 release-keys"
-
-BUILD_FINGERPRINT := google/marlin/marlin:8.1.0/OPM1.171019.021/4565141:user/release-keys
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.pixeldust.maintainer="spezi77" \
     ro.pixeldust.device="marlin"
