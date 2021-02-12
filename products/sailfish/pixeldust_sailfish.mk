@@ -17,7 +17,7 @@ BOOTANIMATION := 1080
 
 # Release name
 PRODUCT_RELEASE_NAME := Pixel
-export TARGET_DEVICE := sailfish
+export TARGET_DEVICE=sailfish
 
 # We have our own power HAL
 TARGET_USES_DEVICE_SPECIFIC_POWERHAL := true
@@ -35,27 +35,48 @@ $(call inherit-product-if-exists, device/google/marlin/aosp_sailfish.mk)
 include vendor/pixeldust/configs/pixeldust_phone.mk
 
 # Include optional stuff (e.g. prebuilt apps)
-include vendor/pixeldust/configs/system_optional.mk
+#include vendor/pixeldust/configs/system_optional.mk
 
 # Google Apps
-$(call inherit-product-if-exists, vendor/googleapps/googleapps.mk)
-
-# Include vendor blobs
-$(call inherit-product-if-exists, vendor/google/sailfish/sailfish-vendor.mk)
+$(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
+REMOVE_GAPPS_PACKAGES += \
+    CalculatorGooglePrebuilt \
+    CalendarGooglePrebuilt \
+    Chrome \
+    DevicePersonalizationPrebuiltPixel2020 \
+    DevicePolicyPrebuilt \
+    DiagnosticsToolPrebuilt \
+    Drive \
+    FilesPrebuilt \
+    GCS \
+    GoogleContacts \
+    GoogleContactsSyncAdapter \
+    GoogleDialer \
+    GoogleFeedback \
+    GoogleTTS \
+    Maps \
+    NgaResources \
+    PixelLiveWallpaperPrebuilt \
+    pixel_experience_2019_midyear \
+    pixel_experience_2019 \
+    pixel_experience_2020_midyear \
+    pixel_experience_2020 \
+    Photos \
+    PrebuiltBugle \
+    PrebuiltDeskClockGoogle \
+    PrebuiltGmail \
+    RecorderPrebuilt \
+    ScribePrebuilt \
+    SoundAmplifierPrebuilt \
+    SoundPickerPrebuilt \
+    Tycho \
+    YouTube \
+    YouTubeMusicPrebuilt \
+    WellbeingPrebuilt \
+    talkback
 
 # Setup device specific product configuration.
 PRODUCT_NAME := pixeldust_sailfish
-PRODUCT_BRAND := google
-PRODUCT_DEVICE := sailfish
-PRODUCT_MODEL := Pixel
-PRODUCT_MANUFACTURER := Google
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=sailfish \
-    PRIVATE_BUILD_DESC="sailfish-user 8.1.0 OPM1.171019.021 4565141 release-keys"
-
-BUILD_FINGERPRINT := google/sailfish/sailfish:8.1.0/OPM1.171019.021/4565141:user/release-keys
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.pixeldust.maintainer="spezi77" \
     ro.pixeldust.device="sailfish"
