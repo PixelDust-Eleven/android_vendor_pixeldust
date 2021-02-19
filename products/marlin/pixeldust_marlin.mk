@@ -45,6 +45,7 @@ $(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
 REMOVE_GAPPS_PACKAGES += \
     CalculatorGooglePrebuilt \
     CalendarGooglePrebuilt \
+    CbrsNetworkMonitor \
     Chrome \
     DevicePersonalizationPrebuiltPixel2020 \
     DevicePolicyPrebuilt \
@@ -74,6 +75,7 @@ REMOVE_GAPPS_PACKAGES += \
     ScribePrebuilt \
     SoundAmplifierPrebuilt \
     SoundPickerPrebuilt \
+    StorageManagerGoogle \
     Tycho \
     YouTube \
     YouTubeMusicPrebuilt \
