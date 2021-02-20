@@ -58,6 +58,7 @@ REMOVE_GAPPS_PACKAGES += \
     GoogleDialer \
     GoogleFeedback \
     GoogleTTS \
+    MaestroPrebuilt \
     Maps \
     NetworkPermissionConfigGoogle \
     NetworkStackGoogle \
@@ -73,6 +74,7 @@ REMOVE_GAPPS_PACKAGES += \
     PrebuiltGmail \
     RecorderPrebuilt \
     ScribePrebuilt \
+    Showcase \
     SoundAmplifierPrebuilt \
     SoundPickerPrebuilt \
     StorageManagerGoogle \
