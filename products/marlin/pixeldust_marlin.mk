@@ -38,26 +38,16 @@ TARGET_EXCLUDE_GOOGLE_APEX := true
 include vendor/pixeldust/configs/pixeldust_phone.mk
 
 # Include optional stuff (e.g. prebuilt apps)
-#include vendor/pixeldust/configs/system_optional.mk
+include vendor/pixeldust/configs/system_optional.mk
 
 # Google Apps
 $(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
 REMOVE_GAPPS_PACKAGES += \
-    CalculatorGooglePrebuilt \
-    CalendarGooglePrebuilt \
     CbrsNetworkMonitor \
-    Chrome \
     DevicePersonalizationPrebuiltPixel2020 \
     DevicePolicyPrebuilt \
     DiagnosticsToolPrebuilt \
     Drive \
-    FilesPrebuilt \
-    GCS \
-    GoogleContacts \
-    GoogleContactsSyncAdapter \
-    GoogleDialer \
-    GoogleFeedback \
-    GoogleTTS \
     MaestroPrebuilt \
     Maps \
     NetworkPermissionConfigGoogle \
@@ -68,21 +58,11 @@ REMOVE_GAPPS_PACKAGES += \
     pixel_experience_2019 \
     pixel_experience_2020_midyear \
     pixel_experience_2020 \
-    Photos \
-    PrebuiltBugle \
-    PrebuiltDeskClockGoogle \
     PrebuiltGmail \
-    RecorderPrebuilt \
     ScribePrebuilt \
     Showcase \
-    SoundAmplifierPrebuilt \
-    SoundPickerPrebuilt \
-    StorageManagerGoogle \
-    Tycho \
     YouTube \
-    YouTubeMusicPrebuilt \
-    WellbeingPrebuilt \
-    talkback
+    YouTubeMusicPrebuilt
 
 # Setup device specific product configuration.
 PRODUCT_NAME := pixeldust_marlin
