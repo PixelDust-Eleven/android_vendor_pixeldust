@@ -30,7 +30,14 @@ ifeq ($(TARGET_EXCLUDE_GOOGLE_APEX),false)
 include vendor/pixeldust/configs/apex.mk
 endif
 
+ifndef TARGET_USE_PIXEL_APNS
+  TARGET_USE_PIXEL_APNS := false
+endif
+ifeq ($(TARGET_USE_PIXEL_APNS),true)
+include vendor/pixeldust/configs/pixel_apns.mk
+else
 include vendor/pixeldust/configs/telephony.mk
+endif
 
 # Add-ons
 -include vendor/themes/common.mk
