@@ -65,6 +65,7 @@ PRODUCT_PACKAGES += \
     PixeldustThemesStub \
     QuickAccessWallet \
     SimpleDeviceConfig \
+    StitchImage \
     ThemePicker \
     Themes \
 
