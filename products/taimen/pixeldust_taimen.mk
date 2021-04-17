@@ -49,6 +49,28 @@ $(call inherit-product, vendor/google/taimen/taimen-vendor.mk)
 
 # Inherit from GMS product config
 $(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
+REMOVE_GAPPS_PACKAGES += \
+    DevicePersonalizationPrebuiltPixel2020 \
+    DevicePolicyPrebuilt \
+    DiagnosticsToolPrebuilt \
+    Drive \
+    FilesPrebuilt \
+    GCS \
+    GoogleTTS \
+    Maps \
+    NetworkPermissionConfigGoogle \
+    NetworkStackGoogle \
+    NgaResources \
+    pixel_experience_2019_midyear \
+    pixel_experience_2019 \
+    pixel_experience_2020_midyear \
+    pixel_experience_2020 \
+    PrebuiltGmail \
+    RecorderPrebuilt \
+    YouTube \
+    YouTubeMusicPrebuilt \
+    WellbeingPrebuilt \
+    talkback
 
 PRODUCT_COPY_FILES += \
     device/google/taimen/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
@@ -57,4 +79,4 @@ PRODUCT_MANUFACTURER := Google
 PRODUCT_BRAND := google
 PRODUCT_NAME := pixeldust_taimen
 PRODUCT_DEVICE := taimen
-PRODUCT_MODEL := Pixel 5a
+PRODUCT_MODEL := Pixel 2 XL
