@@ -17,6 +17,7 @@ PRODUCT_MAKEFILES += \
     $(LOCAL_DIR)/coral/pixeldust_coral.mk \
     $(LOCAL_DIR)/crosshatch/pixeldust_crosshatch.mk \
     $(LOCAL_DIR)/flame/pixeldust_flame.mk \
+    $(LOCAL_DIR)/kebab/pixeldust_kebab.mk \
     $(LOCAL_DIR)/marlin/pixeldust_marlin.mk \
     $(LOCAL_DIR)/redfin/pixeldust_redfin.mk \
     $(LOCAL_DIR)/taimen/pixeldust_taimen.mk \
@@ -37,6 +38,9 @@ COMMON_LUNCH_CHOICES += \
     pixeldust_crosshatch-eng \
     pixeldust_flame-userdebug \
     pixeldust_flame-user \
+    pixeldust_kebab-userdebug \
+    pixeldust_kebab-user \
+    pixeldust_kebab-eng \
     pixeldust_marlin-userdebug \
     pixeldust_marlin-user \
     pixeldust_marlin-eng \
