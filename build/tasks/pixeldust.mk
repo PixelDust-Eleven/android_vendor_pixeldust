@@ -33,8 +33,6 @@ signed-target-files-package: $(SIGNED_TARGET_FILES_PACKAGE)
 
 PD_TARGET_PACKAGE := $(PRODUCT_OUT)/$(PIXELDUST_VERSION).zip
 
-MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)-x86/md5sum
-
 $(PD_TARGET_PACKAGE): KEY_CERT_PAIR := $(PROD_CERTS)/releasekey
 
 $(PD_TARGET_PACKAGE): $(BRO)
@@ -51,6 +49,7 @@ else
 PD_TARGET_PACKAGE := $(PRODUCT_OUT)/$(PIXELDUST_VERSION).zip
 endif
 
+MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 
 .PHONY: pixeldust
 pixeldust: $(INTERNAL_OTA_PACKAGE_TARGET)
