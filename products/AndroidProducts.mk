@@ -13,7 +13,6 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/angler/pixeldust_angler.mk \
     $(LOCAL_DIR)/blueline/pixeldust_blueline.mk \
     $(LOCAL_DIR)/coral/pixeldust_coral.mk \
     $(LOCAL_DIR)/crosshatch/pixeldust_crosshatch.mk \
@@ -21,16 +20,12 @@ PRODUCT_MAKEFILES += \
     $(LOCAL_DIR)/marlin/pixeldust_marlin.mk \
     $(LOCAL_DIR)/redfin/pixeldust_redfin.mk \
     $(LOCAL_DIR)/taimen/pixeldust_taimen.mk \
-    $(LOCAL_DIR)/tissot/pixeldust_tissot.mk \
     $(LOCAL_DIR)/sailfish/pixeldust_sailfish.mk \
-    $(LOCAL_DIR)/walleye/pixeldust_walleye.mk \
     $(LOCAL_DIR)/X01BD/pixeldust_X01BD.mk \
     $(LOCAL_DIR)/X00T/pixeldust_X00T.mk
 
 # Lunch targets
 COMMON_LUNCH_CHOICES += \
-    pixeldust_angler-userdebug \
-    pixeldust_angler-user \
     pixeldust_blueline-userdebug \
     pixeldust_blueline-user \
     pixeldust_blueline-eng \
@@ -49,13 +44,9 @@ COMMON_LUNCH_CHOICES += \
     pixeldust_redfin-eng \
     pixeldust_taimen-userdebug \
     pixeldust_taimen-user \
-    pixeldust_tissot-userdebug \
-    pixeldust_tissot-user \
     pixeldust_sailfish-userdebug \
     pixeldust_sailfish-user \
     pixeldust_sailfish-eng \
-    pixeldust_walleye-userdebug \
-    pixeldust_walleye-user \
     pixeldust_X01BD-userdebug \
     pixeldust_X01BD-user \
     pixeldust_X00T-userdebug \
