@@ -1321,7 +1321,7 @@ function oat2dex() {
             JAROAT="$TMPDIR/system/framework/$ARCH/boot-$(basename ${OEM_TARGET%.*}).oat"
             JARVDEX="$TMPDIR/system/framework/oat/$ARCH/$(basename ${OEM_TARGET%.*}).vdex"
             if [ ! -f "$JAROAT" ]; then
-                JAROAT=$BOOTOAT;
+                JAROAT=$BOOTOAT
             fi
 
             # try to extract classes.dex from boot.vdex for frameworks jars
