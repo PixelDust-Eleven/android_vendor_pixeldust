@@ -380,7 +380,7 @@ endif # BOARD_INCLUDE_DTB_IN_BOOTIMG
 endif # FULL_KERNEL_BUILD
 
 ## Install it
-
+ifeq ($(TARGET_PREBUILT_KERNEL),)
 ifeq ($(NEEDS_KERNEL_COPY),true)
 file := $(INSTALLED_KERNEL_TARGET)
 ALL_PREBUILT += $(file)
@@ -389,7 +389,7 @@ $(file) : $(KERNEL_BIN) | $(ACP)
 
 ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
 endif
-
+endif
 .PHONY: kernel
 kernel: $(INSTALLED_KERNEL_TARGET)
 
