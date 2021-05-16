@@ -14,8 +14,8 @@ B64_FAMILY := msm8992 msm8994
 BR_FAMILY := msm8909 msm8916
 UM_3_18_FAMILY := msm8937 msm8953 msm8996
 UM_4_4_FAMILY := msm8998 sdm660
-UM_4_9_FAMILY := sdm845
-UM_4_14_FAMILY := $(MSMNILE) $(MSMSTEPPE) $(TRINKET)  $(ATOLL)
+UM_4_9_FAMILY := sdm845 sdm710
+UM_4_14_FAMILY := $(MSMNILE) $(MSMSTEPPE) $(TRINKET) $(ATOLL)
 UM_4_19_FAMILY := $(KONA) $(LITO)
 UM_PLATFORMS := $(UM_3_18_FAMILY) $(UM_4_4_FAMILY) $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY)
 QSSI_SUPPORTED_PLATFORMS := $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY)
@@ -23,14 +23,14 @@ QSSI_SUPPORTED_PLATFORMS := $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY)
 BOARD_USES_ADRENO := true
 
 # UM platforms no longer need this set on O+
-ifneq ($(call is-board-platform-in-list, $(UM_PLATFORMS)),true)
+ifneq ($(filter $(B_FAMILY) $(B64_FAMILY) $(BR_FAMILY),$(TARGET_BOARD_PLATFORM)),)
 TARGET_USES_QCOM_BSP := true
 endif
 
 # Tell HALs that we're compiling an AOSP build with an in-line kernel
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 
-ifneq ($(filter msm7x27a msm7x30 msm8660 msm8960,$(PRODUCT_BOARD_PLATFORM)),)
+ifneq ($(filter msm7x27a msm7x30 msm8660 msm8960,$(TARGET_BOARD_PLATFORM)),)
 TARGET_USES_QCOM_BSP_LEGACY := true
 # Enable legacy audio functions
 ifeq ($(BOARD_USES_LEGACY_ALSA_AUDIO),true)
@@ -45,12 +45,12 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 TARGET_USES_QCOM_MM_AUDIO := true
 
 # Enable color metadata for every UM platform
-ifeq ($(call is-board-platform-in-list, $(UM_PLATFORMS)),true)
+ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
 TARGET_USES_COLOR_METADATA := true
 endif
 
 # Enable DRM PP driver on UM platforms that support it
-ifeq ($(call is-board-platform-in-list, $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY)),true)
+ifneq ($(filter $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY),$(TARGET_BOARD_PLATFORM)),)
 TARGET_USES_DRM_PP := true
 endif
 
@@ -61,35 +61,35 @@ TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 13)
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 21)
 
 # Mark GRALLOC_USAGE_PRIVATE_HEIF_VIDEO as valid gralloc bits on UM platforms that support it
-ifeq ($(call is-board-platform-in-list, $(UM_4_9_FAMILY) $(UM_4_19_FAMILY)),true)
+ifneq ($(filter $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY),$(TARGET_BOARD_PLATFORM)),)
     TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 27)
 endif
 
 # List of targets that use master side content protection
-MASTER_SIDE_CP_TARGET_LIST := msm8996 msm8998 sdm660 sdm845 $(UM_4_14_FAMILY) $(UM_4_19_FAMILY)
+MASTER_SIDE_CP_TARGET_LIST := msm8996 msm8998 sdm660 sdm845 $(UM_4_4_FAMILY) $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY)
 
-ifeq ($(call is-board-platform-in-list, $(B_FAMILY)),true)
+ifneq ($(filter $(B_FAMILY),$(TARGET_BOARD_PLATFORM)),)
 MSM_VIDC_TARGET_LIST := $(B_FAMILY)
 QCOM_HARDWARE_VARIANT := msm8974
-else ifeq ($(call is-board-platform-in-list, $(B64_FAMILY)),true)
+else ifneq ($(filter $(B64_FAMILY),$(TARGET_BOARD_PLATFORM)),)
 MSM_VIDC_TARGET_LIST := $(B64_FAMILY)
 QCOM_HARDWARE_VARIANT := msm8994
-else ifeq ($(call is-board-platform-in-list, $(BR_FAMILY)),true)
+else ifneq ($(filter $(BR_FAMILY),$(TARGET_BOARD_PLATFORM)),)
 MSM_VIDC_TARGET_LIST := $(BR_FAMILY)
 QCOM_HARDWARE_VARIANT := msm8916
-else ifeq ($(call is-board-platform-in-list, $(UM_3_18_FAMILY)),true)
+else ifneq ($(filter $(UM_3_18_FAMILY),$(TARGET_BOARD_PLATFORM)),)
 MSM_VIDC_TARGET_LIST := $(UM_3_18_FAMILY)
 QCOM_HARDWARE_VARIANT := msm8996
-else ifeq ($(call is-board-platform-in-list, $(UM_4_4_FAMILY)),true)
+else ifneq ($(filter $(UM_4_4_FAMILY),$(TARGET_BOARD_PLATFORM)),)
 MSM_VIDC_TARGET_LIST := $(UM_4_4_FAMILY)
 QCOM_HARDWARE_VARIANT := msm8998
-else ifeq ($(call is-board-platform-in-list, $(UM_4_9_FAMILY)),true)
+else ifneq ($(filter $(UM_4_9_FAMILY),$(TARGET_BOARD_PLATFORM)),)
 MSM_VIDC_TARGET_LIST := $(UM_4_9_FAMILY)
 QCOM_HARDWARE_VARIANT := sdm845
-else ifeq ($(call is-board-platform-in-list, $(UM_4_14_FAMILY)),true)
+else ifneq ($(filter $(UM_4_14_FAMILY),$(TARGET_BOARD_PLATFORM)),)
 MSM_VIDC_TARGET_LIST := $(UM_4_14_FAMILY)
 QCOM_HARDWARE_VARIANT := sm8150
-else ifeq ($(call is-board-platform-in-list, $(UM_4_19_FAMILY)),true)
+else ifneq ($(filter $(UM_4_19_FAMILY),$(TARGET_BOARD_PLATFORM)),)
 MSM_VIDC_TARGET_LIST := $(UM_4_19_FAMILY)
 QCOM_HARDWARE_VARIANT := sm8250
 else
@@ -97,6 +97,12 @@ MSM_VIDC_TARGET_LIST := $(PRODUCT_BOARD_PLATFORM)
 QCOM_HARDWARE_VARIANT := $(PRODUCT_BOARD_PLATFORM)
 endif
 
+# Allow a device to manually override which HALs it wants to use
+ifneq ($(OVERRIDE_QCOM_HARDWARE_VARIANT),)
+    QCOM_HARDWARE_VARIANT := $(OVERRIDE_QCOM_HARDWARE_VARIANT)
+endif
+
+# Allow a device to opt-out hardset of PRODUCT_SOONG_NAMESPACES
 QCOM_SOONG_NAMESPACE ?= hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)
 PRODUCT_SOONG_NAMESPACES += $(QCOM_SOONG_NAMESPACE)
 
@@ -120,5 +126,17 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/opensource/commonsys/packages/apps/Bluetooth \
     vendor/qcom/opensource/commonsys/system/bt/conf
 endif #TARGET_USE_QTI_BT_STACK
+
+ifeq (,$(filter msm8226 msm8610 msm8974 msm8909 msm8916 msm8952 msm8992 msm8994 msm8937 msm8953 msm8996 msm8998 sdm660 sdm710 sdm845, $(TARGET_BOARD_PLATFORM)))
+BOARD_SEPOLICY_M4DEFS += \
+    qdisplay_service=vendor_qdisplay_service \
+    sysfs_graphics=vendor_sysfs_graphics \
+    hal_keymaster_qti_exec=vendor_hal_keymaster_qti_exec \
+    persist_block_device=vendor_persist_block_device \
+    display_vendor_data_file=vendor_display_vendor_data_file \
+    hal_perf_default=vendor_hal_perf_default \
+    sysfs_battery_supply=vendor_sysfs_battery_supply \
+    sysfs_usb_supply=vendor_sysfs_usb_supply
+endif
 
 include vendor/pixeldust/build/core/qcom_target.mk
