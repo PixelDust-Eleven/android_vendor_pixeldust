@@ -28,6 +28,7 @@ PRODUCT_MAKEFILES += \
     $(LOCAL_DIR)/walleye/pixeldust_walleye.mk \
     $(LOCAL_DIR)/X01BD/pixeldust_X01BD.mk \
     $(LOCAL_DIR)/X00T/pixeldust_X00T.mk
+    $(LOCAL_DIR)/X00T/pixeldust_begonia.mk
 
 # Lunch targets
 COMMON_LUNCH_CHOICES += \
@@ -68,3 +69,6 @@ COMMON_LUNCH_CHOICES += \
     pixeldust_X01BD-user \
     pixeldust_X00T-userdebug \
     pixeldust_X00T-user
+    pixeldust_begonia-userdebug \
+    pixeldust_begonia-user \
+    pixeldust_begonia-eng \
