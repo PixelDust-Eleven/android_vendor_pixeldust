@@ -29,13 +29,6 @@ ifeq ($(BUILD_VERSION_CODE),caf)
 include vendor/pixeldust/configs/system_caf.mk
 endif
 
-ifndef TARGET_EXCLUDE_GOOGLE_APEX
-  TARGET_EXCLUDE_GOOGLE_APEX := false
-endif
-ifeq ($(TARGET_EXCLUDE_GOOGLE_APEX),false)
-include vendor/pixeldust/configs/apex.mk
-endif
-
 ifneq ($(filter blueline coral crosshatch flame,$(TARGET_DEVICE)),)
 # Inherit from our vendor sepolicy config
 $(call inherit-product, vendor/pixeldust/configs/vendor_sepolicy.mk)
